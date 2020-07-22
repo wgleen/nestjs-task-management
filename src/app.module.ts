@@ -1,11 +1,24 @@
 import { Module } from '@nestjs/common';
-import { TasksModule } from './tasks/tasks.module';
+import { 
+  ConfigModule,
+  ConfigService
+} from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { typeORMConfig } from './config/typeorm.config';
+import databaseConfig from './config/database.config'
+import { TasksModule } from './tasks/tasks.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(typeORMConfig),
+    ConfigModule.forRoot({
+      load: [databaseConfig]
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => (
+        configService.get('database')
+      ),
+      inject: [ConfigService]
+    }),
     TasksModule
   ],
 })
