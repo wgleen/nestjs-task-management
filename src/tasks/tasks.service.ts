@@ -3,7 +3,6 @@ import {
   NotFoundException
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Like } from 'typeorm';
 import { TaskRepository } from './task.repository';
 import { Task } from './task.entity';
 import { CreateTaskDto } from './dto/create-task.dto';
@@ -17,7 +16,25 @@ export class TasksService {
     private taskRepository: TaskRepository
   ) {}
 
-  getTasks(getTasksFilterDto: GetTasksFilterDto): Promise<Task[]> {
+  async getTasks(getTasksFilterDto: GetTasksFilterDto): Promise<Task[]> {
+    const {
+      status,
+      search
+    } = getTasksFilterDto
+
+    const query = this.taskRepository.createQueryBuilder();
+
+    if (status) {
+      query.andWhere('status = :status', { status })
+    }
+
+    if (search) {
+      query.andWhere('(title LIKE :search OR description LIKE :search)', { search: `%${search}%` })
+    }
+
+    const tasks = await query.getMany();
+
+    return tasks;
   }
 
   async getTaskById(id: number): Promise<Task> {
@@ -46,9 +63,9 @@ export class TasksService {
     return updated;
   }
 
-  async deleteTaskById(id: number): Promise<Task> {
-    const task = await this.getTaskById(id);
+  async deleteTaskById(id: number): Promise<void> {
+    const deleted = await this.taskRepository.delete(id)
 
-    return this.taskRepository.remove(task);
+    if (deleted.affected === 0) throw new NotFoundException();
   }
 }

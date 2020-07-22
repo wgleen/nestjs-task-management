@@ -21,11 +21,11 @@ import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 export class TasksController {
   constructor(private tasksService: TasksService) {}
 
-  // @Get()
-  // @UsePipes(ValidationPipe)
-  // getTasks(@Query() getTasksFilterDto: GetTasksFilterDto): Task[] {
-  //   return this.tasksService.getTasks(getTasksFilterDto);
-  // }
+  @Get()
+  @UsePipes(ValidationPipe)
+  getTasks(@Query() getTasksFilterDto: GetTasksFilterDto): Promise<Task[]> {
+    return this.tasksService.getTasks(getTasksFilterDto);
+  }
 
   @Get(':id')
   getTaskById(@Param('id', ParseIntPipe) id: number): Promise<Task> {
@@ -48,7 +48,7 @@ export class TasksController {
   }
 
   @Delete(':id')
-  deleteTaskById(@Param('id', ParseIntPipe) id: number): Promise<Task> {
+  deleteTaskById(@Param('id', ParseIntPipe) id: number): Promise<void> {
     return this.tasksService.deleteTaskById(id);
   }
 }
