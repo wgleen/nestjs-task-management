@@ -1,4 +1,5 @@
 import * as compression from 'compression';
+import * as helmet from 'helmet';
 import {
   Module,
   MiddlewareConsumer
@@ -13,7 +14,6 @@ import databaseConfig from '../../config/database.config';
 import { UsersModule } from './users/users.module';
 import { TasksModule } from './tasks/tasks.module';
 import { AuthModule } from './auth/auth.module';
-import { MiddlewareConfigProxy } from '@nestjs/common/interfaces';
 
 @Module({
   imports: [
@@ -38,5 +38,6 @@ import { MiddlewareConfigProxy } from '@nestjs/common/interfaces';
 export class V1Module {
   configure(consumer: MiddlewareConsumer): void {
     consumer.apply(compression());
+    consumer.apply(helmet());
   }
 }
