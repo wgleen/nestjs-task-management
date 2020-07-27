@@ -1,4 +1,8 @@
-import { Module } from '@nestjs/common';
+import * as compression from 'compression';
+import {
+  Module,
+  MiddlewareConsumer
+} from '@nestjs/common';
 import {
   ConfigModule,
   ConfigService
@@ -9,6 +13,7 @@ import databaseConfig from '../../config/database.config';
 import { UsersModule } from './users/users.module';
 import { TasksModule } from './tasks/tasks.module';
 import { AuthModule } from './auth/auth.module';
+import { MiddlewareConfigProxy } from '@nestjs/common/interfaces';
 
 @Module({
   imports: [
@@ -30,4 +35,8 @@ import { AuthModule } from './auth/auth.module';
     UsersModule
   ],
 })
-export class V1Module {}
+export class V1Module {
+  configure(consumer: MiddlewareConsumer): void {
+    consumer.apply(compression());
+  }
+}
