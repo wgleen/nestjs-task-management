@@ -2,8 +2,8 @@ import * as path from 'path';
 import { registerAs } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
-const ENTITIES_ENTRIES: string = path.join(__dirname, '../**/*.entity.{js,ts}')
-const SUBSCRIBERS_ENTRIES: string = path.join(__dirname, '../**/*.subscriber.{js,ts}')
+const ENTITIES_ENTRIES: string = path.join(__dirname, '../**/*.entity.{js,ts}');
+const SUBSCRIBERS_ENTRIES: string = path.join(__dirname, '../**/*.subscriber.{js,ts}');
 
 export default registerAs('database', (): TypeOrmModuleOptions => ({
   type: 'postgres',

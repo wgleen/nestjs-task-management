@@ -2,11 +2,13 @@ import {
   BaseEntity,
   Entity,
   PrimaryGeneratedColumn,
-  Column
+  Column,
+  ManyToOne
 } from 'typeorm';
+import { User } from '../users/user.entity';
 import { TaskStatus } from './enums/task-status.enum';
 
-@Entity()
+@Entity('tasks')
 export class Task extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -19,4 +21,7 @@ export class Task extends BaseEntity {
 
   @Column()
   status: TaskStatus;
+
+  @ManyToOne(() => User, user => user.tasks, { eager: false })
+  user: User;
 }

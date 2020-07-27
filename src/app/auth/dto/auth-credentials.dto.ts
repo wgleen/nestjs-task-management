@@ -5,16 +5,23 @@ import {
   MaxLength,
   Matches
 } from 'class-validator';
-
-export const PASSWORD_VALIDATION_REGEX = /((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/
-export const PASSWORD_VALIDATION_MESSAGE = 'password too weak'
+import {
+  EMAIL_VALIDATION_REGEX,
+  EMAIL_VALIDATION_MESSAGE
+} from '../../core/validations/email'
+import {
+  PASSWORD_VALIDATION_REGEX,
+  PASSWORD_VALIDATION_MESSAGE
+} from '../../core/validations/password'
 
 export class AuthCredentialsDto {
-  @IsString()
-  @MinLength(4)
-  @MaxLength(20)
   @IsNotEmpty()
-  username: string;
+  @IsString()
+  @Matches(
+    EMAIL_VALIDATION_REGEX,
+    { message: EMAIL_VALIDATION_MESSAGE }
+  )
+  email: string;
 
   @IsString()
   @MinLength(8)
