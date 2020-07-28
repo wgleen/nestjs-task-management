@@ -4,7 +4,7 @@ import {
   DefaultAdminModule,
   DefaultAdminSite
 } from 'nestjs-admin';
-import { Task } from './task.entity';
+import { TaskAdmin } from './task.admin';
 import { TaskRepository } from './task.repository';
 import { TasksController } from './v1/tasks.controller';
 import { TasksServiceV1 } from './v1/tasks.service';
@@ -19,6 +19,6 @@ import { TasksServiceV1 } from './v1/tasks.service';
 })
 export class TasksModule {
   constructor(private readonly adminSite: DefaultAdminSite) {
-    adminSite.register('Task', Task)
+    adminSite.register('Task', TaskAdmin)
   }
 }
