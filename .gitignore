@@ -35,3 +35,6 @@ lerna-debug.log*
 
 # Local configs
 .env
+
+# Documentation build
+documentation/

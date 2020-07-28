@@ -14,5 +14,5 @@ const options = new DocumentBuilder()
 export const buildV1Documentation = (app: INestApplication): void => {
   const document = SwaggerModule.createDocument(app, options);
 
-  SwaggerModule.setup('api', app, document)
+  SwaggerModule.setup('docs', app, document)
 }
