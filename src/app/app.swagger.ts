@@ -7,7 +7,6 @@ import { INestApplication } from '@nestjs/common';
 const options = new DocumentBuilder()
   .setTitle('Tasks Management API')
   .setDescription('Tasks Management API description')
-  .setVersion('1.0')
   .addBearerAuth()
   .build();
 
