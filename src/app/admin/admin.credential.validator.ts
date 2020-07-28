@@ -8,7 +8,7 @@ export const adminCredentialValidator = {
       email: string,
       password: string
     ): Promise<User> => {
-      const user: User | null = await authServiceV1.validateUserCredentials({ email, password })
+      const user: User | null = await authServiceV1.validateUserAdminCredentials({ email, password })
 
       if (!user) null
 

@@ -58,6 +58,14 @@ export class AuthServiceV1 {
     return user;
   }
 
+  async validateUserAdminCredentials(authCredentials: AuthCredentialsDto): Promise<User> {
+    const user = await this.validateUserCredentials(authCredentials);
+
+    if (!user.isAdmin()) throw new UnauthorizedException();
+
+    return user;
+  }
+
   private async createAccessToken(payload: JwtPayload): Promise<JwtResponse> {
     const accessToken: string = await this.jwtSertive.sign(payload);
 
