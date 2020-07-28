@@ -1,14 +1,14 @@
-import * as http from 'http';
-import * as express from 'express';
-import { createApp as createAppV1 } from './app/v1/v1.app'
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app/app.module';
+import { buildV1Documentation } from './app/app.swagger'
 
 async function bootstrap() {
-  const server = express();
+  const app = await NestFactory.create(AppModule);
 
-  createAppV1(server);
+  //app.setGlobalPrefix('api')
 
-  http
-    .createServer(server)
-    .listen(3000);
+  buildV1Documentation(app);
+
+  await app.listen(3000);
 }
 bootstrap();

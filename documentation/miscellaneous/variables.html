@@ -58,6 +58,15 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#ADMIN_USER_ENTITIES_ENTRIES" title="src/config/database.config.ts"><b>ADMIN_USER_ENTITIES_ENTRIES</b>&nbsp;&nbsp;&nbsp;(src/.../database.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#buildV1Documentation" title="src/app/v1/v1.swagger.ts"><b>buildV1Documentation</b>&nbsp;&nbsp;&nbsp;(src/.../v1.swagger.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createApp" title="src/app/v1/v1.app.ts"><b>createApp</b>&nbsp;&nbsp;&nbsp;(src/.../v1.app.ts)</a>
+                        </li>
+                        <li>
                             <a href="#EMAIL_VALIDATION_MESSAGE" title="src/app/core/validations/email.ts"><b>EMAIL_VALIDATION_MESSAGE</b>&nbsp;&nbsp;&nbsp;(src/.../email.ts)</a>
                         </li>
                         <li>
@@ -74,6 +83,9 @@
                         </li>
                         <li>
                             <a href="#GetUser" title="src/app/v1/auth/decorators/get-user.decorator.ts"><b>GetUser</b>&nbsp;&nbsp;&nbsp;(src/.../get-user.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#options" title="src/app/v1/v1.swagger.ts"><b>options</b>&nbsp;&nbsp;&nbsp;(src/.../v1.swagger.ts)</a>
                         </li>
                         <li>
                             <a href="#PASSWORD_VALIDATION_MESSAGE" title="src/app/core/validations/password.ts"><b>PASSWORD_VALIDATION_MESSAGE</b>&nbsp;&nbsp;&nbsp;(src/.../password.ts)</a>
@@ -94,6 +106,181 @@
     </table>
 </section>
 
+    <h3>src/config/database.config.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ADMIN_USER_ENTITIES_ENTRIES"></a>
+                        <span class="name">
+                            <b>
+                            ADMIN_USER_ENTITIES_ENTRIES</b>
+                            <a href="#ADMIN_USER_ENTITIES_ENTRIES"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>path.join(__dirname, &#x27;../../node_modules/nestjs-admin/**/*.entity.js&#x27;)</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ENTITIES_ENTRIES"></a>
+                        <span class="name">
+                            <b>
+                            ENTITIES_ENTRIES</b>
+                            <a href="#ENTITIES_ENTRIES"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>path.join(__dirname, &#x27;../**/*.entity.{js,ts}&#x27;)</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="SUBSCRIBERS_ENTRIES"></a>
+                        <span class="name">
+                            <b>
+                            SUBSCRIBERS_ENTRIES</b>
+                            <a href="#SUBSCRIBERS_ENTRIES"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>path.join(__dirname, &#x27;../**/*.subscriber.{js,ts}&#x27;)</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/v1/v1.swagger.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="buildV1Documentation"></a>
+                        <span class="name">
+                            <b>
+                            buildV1Documentation</b>
+                            <a href="#buildV1Documentation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(app: INestApplication): void &#x3D;&gt; {
+  const document &#x3D; SwaggerModule.createDocument(app, options);
+
+  SwaggerModule.setup(&#x27;api/v1&#x27;, app, document)
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="options"></a>
+                        <span class="name">
+                            <b>
+                            options</b>
+                            <a href="#options"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new DocumentBuilder()
+  .setTitle(&#x27;Tasks Management API&#x27;)
+  .setDescription(&#x27;Tasks Management API description&#x27;)
+  .setVersion(&#x27;1.0&#x27;)
+  .addBearerAuth()
+  .build()</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/v1/v1.app.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createApp"></a>
+                        <span class="name">
+                            <b>
+                            createApp</b>
+                            <a href="#createApp"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>async (server: Express): Promise&lt;INestApplication&gt; &#x3D;&gt; {
+  const appFactory &#x3D; new NestFactoryStatic();
+  const app &#x3D; await appFactory
+    .create(
+      V1Module,
+      new ExpressAdapter(server)
+    );
+
+  app.setGlobalPrefix(&#x27;api/v1&#x27;);
+
+  buildV1Documentation(app);
+
+  return app.init();
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
     <h3>src/app/core/validations/email.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -189,63 +376,6 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
-    <h3>src/config/database.config.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ENTITIES_ENTRIES"></a>
-                        <span class="name">
-                            <b>
-                            ENTITIES_ENTRIES</b>
-                            <a href="#ENTITIES_ENTRIES"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>path.join(__dirname, &#x27;../**/*.entity.{js,ts}&#x27;)</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="SUBSCRIBERS_ENTRIES"></a>
-                        <span class="name">
-                            <b>
-                            SUBSCRIBERS_ENTRIES</b>
-                            <a href="#SUBSCRIBERS_ENTRIES"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>path.join(__dirname, &#x27;../**/*.subscriber.{js,ts}&#x27;)</code>
                         </td>
                     </tr>
 
